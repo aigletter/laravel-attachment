@@ -1,0 +1,33 @@
+{
+    "name": "aigletter/laravel-attachment",
+    "description": "Laravel attachment",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "aigletter",
+            "email": "aigletter@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "laravel/framework": ">=8.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aigletter\\LaravelAttachment\\LaravelAttachmentServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Aigletter\\LaravelAttachment\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests"
+        }
+    }
+}

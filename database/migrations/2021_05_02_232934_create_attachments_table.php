@@ -17,6 +17,7 @@ class CreateAttachmentsTable extends Migration
             $table->id();
             $table->string('path', 255);
             $table->string('url', 255);
+            $table->string('name')->nullable(100);
             $table->bigInteger('attachmentable_id', false, true);
             $table->string('attachmentable_type', 100);
             $table->timestamps();

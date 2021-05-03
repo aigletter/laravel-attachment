@@ -17,7 +17,7 @@ class LaravelAttachment
         $this->app = $app;
     }
 
-    public function attach(\SplFileInfo $file, Model $model, $path = null)
+    public function attach(\SplFileInfo $file, Model $model, $name = null)
     {
         if (!method_exists($model, 'attachments')) {
             throw new \Exception('Method attachments not exists');
@@ -29,10 +29,11 @@ class LaravelAttachment
         $url = $driver->url($path);
         $className = config('attachment.model');
 
-        $attachmentModel = new $className();
-        $attachmentModel->path = $path;
-        $attachmentModel->url = $url;
+        $attachment = new $className();
+        $attachment->path = $path;
+        $attachment->url = $url;
+        $attachment->name = $name;
 
-        $model->attachments()->save($attachmentModel);
+        $model->attachments()->save($attachment);
     }
 }

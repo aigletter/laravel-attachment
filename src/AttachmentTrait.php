@@ -16,6 +16,6 @@ trait AttachmentTrait
 {
     public function attachments()
     {
-        return $this->morphToMany(Attachment::class, 'attachmentable');
+        return $this->morphMany(Attachment::class, 'attachmentable');
     }
 }

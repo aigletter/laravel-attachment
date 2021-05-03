@@ -34,6 +34,6 @@ class LaravelAttachment
         $attachment->url = $url;
         $attachment->name = $name;
 
-        $model->attachments()->save($attachment);
+        return $model->attachments()->save($attachment);
     }
 }

@@ -20,7 +20,7 @@ class LaravelAttachment
     public function attach(Model $model, string $name, \SplFileInfo $file)
     {
         if (!method_exists($model, 'attachments')) {
-            throw new \Exception('Method attachments not exists');
+            throw new \Exception('Method attachments not exists in model class');
         }
 
         $config = config('attachment.driver');
@@ -39,6 +39,10 @@ class LaravelAttachment
 
     public function detach(Model $model, string $name)
     {
+        if (!method_exists($model, 'attachments')) {
+            throw new \Exception('Method attachments not exists in model class');
+        }
+
         $attachments = $model->attachments()->where('name', $name)->get();
         if ($attachments->count()) {
             foreach ($attachments as $attachment) {
